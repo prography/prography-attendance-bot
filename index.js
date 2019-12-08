@@ -1,35 +1,39 @@
 const {RTMClient} = require('@slack/rtm-api');
-const token = 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ';
+const bot_token = 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ';
 
-const rtm = new RTMClient(token);
+const rtm = new RTMClient(bot_token);
 
 const axios = require('axios')
 
-
-
-
 rtm.on('message',async (event) => {
-	//console.log(event.user);
 	try {
-		
+		// get user information 	
 		const res = await axios.get('https://slack.com/api/users.info', { params: {
-			token: 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ',
+			token: bot_token,
 			user: event.user
 		} })
 
-		console.log(res.data.user.real_name)
+		console.log(res.data.user.real_name);
 		
-		if (event.text.includes("뒷풀이")){
-			rtm.sendMessage("뒷풀이 불참 확인 완료하였습니다.", event.channel);
+		var message_content = "";
+
+		if (event.text.includes("뒷풀이") || event.text.includes("뒤풀이")){
+			message_content = "뒷풀이 불참 확인 완료하였습니다";
+			//const reply = await rtm.sendMessage("뒷풀이 불참 확인 완료하였습니다.", event.channel);
 		}
 		
 		if (event.text.includes("세션") && !event.text.includes("특수")){
-			rtm.sendMessage("세션 불참 확인 완료하였습니다. (일반결석)", event.channel);
+			message_content = "세션 불참 확인 완료하였습니다. (일반결석)";
+			//rtm.sendMessage("세션 불참 확인 완료하였습니다. (일반결석)", event.channel);
 		}
 		
 		else if (event.text.includes("세션") && event.text.includes("특수")){
-			rtm.sendMessage("세션 불참 확인 완료하였습니다. (특수결석)", event.channel);
+			message_content = "세션 불참 확인 완료하였습니다. (특수결석)";
+			//rtm.sendMessage("세션 불참 확인 완료하였습니다. (특수결석)", event.channel);
 		}
+		
+		// send reply
+		const reply = await rtm.sendMessage(message_content, event.channel);
 
 	}catch (error){
 		console.log('error', error)
