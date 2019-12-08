@@ -18,7 +18,7 @@ rtm.on('message',async (event) => {
 				user: event.user
 			} })
 
-			console.log(res)
+			console.log(res.real_name)
 			
 		}
 		
