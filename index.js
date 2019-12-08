@@ -4,6 +4,7 @@ const token = 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ';
 const rtm = new RTMClient(token);
 
 rtm.on('message',async (event) => {
+	console.log(event);
 	try {
 		if (event.text.includes("뒷풀이")){
 			rtm.sendMessage("뒷풀이 불참 확인 완료하였습니다.", event.channel);
