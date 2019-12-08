@@ -6,15 +6,15 @@ const rtm = new RTMClient(token);
 rtm.on('message',async (event) => {
 	try {
 		if (event.text.includes("뒷풀이")){
-			rtm.sendMessage("뒷풀이 불참 확인 완료하였습니다.", event.message.channel);
+			rtm.sendMessage("뒷풀이 불참 확인 완료하였습니다.", event.channel);
 		}
 		
 		if (event.text.includes("세션") && !event.text.includes("특수")){
-			rtm.sendMessage("세션 불참 확인 완료하였습니다. (일반결석)", event.message.channel);
+			rtm.sendMessage("세션 불참 확인 완료하였습니다. (일반결석)", event.channel);
 		}
 		
 		else if (event.text.includes("세션") && event.text.includes("특수")){
-			rtm.sendMessage("세션 불참 확인 완료하였습니다. (특수결석)", event.message.channel);
+			rtm.sendMessage("세션 불참 확인 완료하였습니다. (특수결석)", event.channel);
 		}
 
 	}catch (error){
