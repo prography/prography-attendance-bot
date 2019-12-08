@@ -10,8 +10,6 @@ rtm.on('message',(message)=>{
 	var user = message.user
 	
 	if(text.includes("뒷풀이")){
-
-		rtm.sendMessage(user, message.channel);
 		rtm.sendMessage("<@${event.user}> 뒷풀이 불참 확인 완료하였습니다.", message.channel);
 	}
 
