@@ -3,7 +3,6 @@ const token = process.env.SLACK_BOT_TOKEN || 'xoxb-259311417568-788589402980-TTy
 
 const rtm = new RTMClient(token);
 
-rtm.start();
 
 rtm.on('message',async (event) => {
 	try {
@@ -23,3 +22,7 @@ rtm.on('message',async (event) => {
 		console.log('error', error)
 	}
 });
+
+(async () => {
+	await rtm.start();
+})();
