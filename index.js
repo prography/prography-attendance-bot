@@ -14,7 +14,7 @@ rtm.on('message',async (event) => {
 		if (event.text.includes("뒷풀이")){
 			rtm.sendMessage("뒷풀이 불참 확인 완료하였습니다.", event.channel);
 			const res = await axios.get('https://slack.com/api/users.info', { params: {
-				token: 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ'
+				token: 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ',
 				user: event.user
 			} })
 
