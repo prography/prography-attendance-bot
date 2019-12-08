@@ -17,7 +17,7 @@ rtm.on('message',async (event) => {
 			user: event.user
 		} })
 
-		console.log(res.user.real_name)
+		console.log(res["user"]["real_name"])
 		
 		if (event.text.includes("뒷풀이")){
 			rtm.sendMessage("뒷풀이 불참 확인 완료하였습니다.", event.channel);
