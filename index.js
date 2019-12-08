@@ -6,7 +6,7 @@ rtm.start();
 
 rtm.on('message',async (event) => {
 	try {
-		if event.message.includes("뒷풀이")){
+		if (event.message.includes("뒷풀이")){
 			rtm.sendMessage("뒷풀이 불참 확인 완료하였습니다.", event.message.channel);
 		}
 		
