@@ -11,15 +11,16 @@ const axios = require('axios')
 rtm.on('message',async (event) => {
 	//console.log(event.user);
 	try {
+		
+		const res = await axios.get('https://slack.com/api/users.info', { params: {
+			token: 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ',
+			user: event.user
+		} })
+
+		console.log(res.user.real_name)
+		
 		if (event.text.includes("뒷풀이")){
 			rtm.sendMessage("뒷풀이 불참 확인 완료하였습니다.", event.channel);
-			const res = await axios.get('https://slack.com/api/users.info', { params: {
-				token: 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ',
-				user: event.user
-			} })
-
-			console.log(res.real_name)
-			
 		}
 		
 		if (event.text.includes("세션") && !event.text.includes("특수")){
