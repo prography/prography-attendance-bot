@@ -1,14 +1,12 @@
 require('dotenv').config();
-
-const {RTMClient} = require('@slack/rtm-api');
-const bot_token = process.env.bot_token;
-console.log(bot_token);
-
-
+/* RTM API 를 위한 선언 */
 const rtm = new RTMClient(bot_token);
 
 const axios = require('axios')
+const {RTMClient} = require('@slack/rtm-api');
+const bot_token = process.env.bot_token;
 
+/* Spread Sheet API 를 위한 선언 */
 const { google } = require('googleapis');
 const fs = require('fs');
 const path = require('path');
