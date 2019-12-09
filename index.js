@@ -3,7 +3,7 @@ require('dotenv').config();
 const {RTMClient} = require('@slack/rtm-api');
 const bot_token = process.env.bot_token;
 
-const rtm = new RTMClient(token);
+const rtm = new RTMClient(bot_token);
 
 const axios = require('axios')
 
