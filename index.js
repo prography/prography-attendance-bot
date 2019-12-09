@@ -1,4 +1,6 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+
+dotenv.config();
 /* RTM API 를 위한 선언 */
 
 const axios = require('axios')
