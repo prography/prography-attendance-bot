@@ -1,9 +1,10 @@
 require('dotenv').config();
 /* RTM API 를 위한 선언 */
-const rtm = new RTMClient(bot_token);
 
 const axios = require('axios')
 const {RTMClient} = require('@slack/rtm-api');
+const rtm = new RTMClient(bot_token);
+
 const bot_token = process.env.bot_token;
 
 /* Spread Sheet API 를 위한 선언 */
