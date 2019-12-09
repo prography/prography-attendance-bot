@@ -1,5 +1,7 @@
+require('dotenv').config();
+
 const {RTMClient} = require('@slack/rtm-api');
-const token = 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ';
+const bot_token = process.env.bot_token;
 
 const rtm = new RTMClient(token);
 
@@ -9,7 +11,7 @@ rtm.on('message',async (event) => {
 	try {
 		// get user information 	
 		const res = await axios.get('https://slack.com/api/users.info', { params: {
-			token: 'xoxb-259311417568-788589402980-qUcte6hELlPQuUNBqCwRMUuQ',
+			token: bot_token,
 			user: event.user
 		} })
 
