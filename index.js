@@ -8,7 +8,7 @@ const bot_token = process.env.bot_token;
 
 const rtm = new RTMClient(bot_token);
 
-console.log('sample' + process.env.bot_token);
+console.log('sample ' + process.env.bot_token);
 
 /* Spread Sheet API 를 위한 선언 */
 const { google } = require('googleapis');
